@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="report_partner_list"
+            string="Lista de contactos"
+            model="res.partner" 
+            report_type="qweb-pdf"
+            file="partner_report.report_partner" 
+            name="partner_report.report_partner" 
+            attachment_use="False"
+        />
+    </data>
+</openerp>
