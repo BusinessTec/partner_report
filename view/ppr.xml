@@ -1,1 +1,84 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <template id="report_partner">
+      <t t-call="report.html_container">
+        <t t-set="company" t-value="res_company"/>
+        <div class="header">
+          <div class="row">
+            <div class="col-xs-4">
+              <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" width="140" height="75"/>
+            </div>
+            <b>
+              <h4 style="color:black;">
+                <div class="col-xs-8 text-right" style="margin-top:26px;" t-field="company.rml_header1"/>
+              </h4>
+            </b>
+          </div>
+          <div class="row zero_min_height">
+            <div class="col-xs-12">
+              <div style="border-bottom: 1px solid black;"/>
+            </div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="row">
+            <b>
+              <center>
+                <h3>Lista de contactos</h3>
+              </center>
+            </b>
+            <br/>
+            <br/>
+          </div>
+          <table class="table table-condensed" style="font-Size:14px; border:1px solid black;border-collapse:collapse;border-bottom:1px solid black;">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Móvil</th>
+                <th>Correo</th>
+                <th>Página de web</th>
+              </tr>
+            </thead>
+            <tbody class="invoice_tbody">
+              <tr t-foreach="docs" t-as="o">
+                <td>
+                  <span t-field="o.display_name"/>
+                </td>
+                <td>
+                  <span t-field="o.phone"/>
+                </td>
+                <td>
+                  <span t-field="o.mobile"/>
+                </td>
+                <td>
+                  <span t-field="o.email"/>
+                </td>
+                <td>
+                  <span t-field="o.website"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer">
+          <div class="text-center" style="border-top: 1px solid black; margin-top:4px;">
+            <div style="margin-top:9px;">
+              <ul class="list-inline">
+                <li>Página:</li>
+                <li>
+                  <span class="page"/>
+                </li>
+                <li>/</li>
+                <li>
+                  <span class="topage"/>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+  </data>
+</openerp>
